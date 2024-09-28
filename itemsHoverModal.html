@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <title>Flexbox Modal Sample</title>
+    <style>
+        .modal {
+            display: block;
+        }
+    </style>
+</head>
+<body class="flex items-center justify-center min-h-screen bg-gray-100">
+    <div class="flex space-x-4">
+        <div class="relative group flex items-center justify-center w-32 h-32 bg-blue-500 text-white rounded-lg hover:cursor-pointer">
+            Box 1
+            <div class="modal absolute inset-0 flex items-center justify-center bg-gray-800 bg-opacity-70">
+                <div class="flex flex-col justify-between h-full p-2">
+                    <div class="flex justify-between items-start">
+                        <div>　</div>
+                        <div class="text-2xl cursor-pointer">↑</div>
+                        <div class="text-2xl cursor-pointer close-modal">×</div>
+                    </div>
+                    <div class="flex justify-between">
+                        <div class="text-2xl cursor-pointer">←</div>
+                        <div class="text-2xl cursor-pointer">→</div>
+                    </div>
+                    <div class="flex justify-center">
+                        <div class="text-2xl cursor-pointer">↓</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="relative group flex items-center justify-center w-32 h-32 bg-green-500 text-white rounded-lg hover:cursor-pointer">
+            Box 2
+            <div class="modal absolute inset-0 flex items-center justify-center bg-gray-800 bg-opacity-70">
+                <div class="flex flex-col justify-between h-full p-2">
+                    <div class="flex justify-between items-start">
+                        <div>　</div>
+                        <div class="text-2xl cursor-pointer">↑</div>
+                        <div class="text-2xl cursor-pointer close-modal">×</div>
+                        <div class="text-2xl cursor-pointer close-modal flex items-center">×</div>
+                    </div>
+                    <div class="flex justify-between">
+                        <div class="text-2xl cursor-pointer">←</div>
+                        <div class="text-2xl cursor-pointer">→</div>
+                    </div>
+                    <div class="flex justify-center">
+                        <div class="text-2xl cursor-pointer">↓</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="relative group flex items-center justify-center w-32 h-32 bg-red-500 text-white rounded-lg hover:cursor-pointer">
+            Box 3
+            <div class="modal absolute inset-0 flex items-center justify-center bg-gray-800 bg-opacity-70">
+                <div class="flex flex-col justify-between h-full p-2">
+                    <div class="flex justify-between">
+                        <div>　</div>
+                        <div class="text-2xl cursor-pointer">↑</div>
+                        <div class="text-2xl cursor-pointer close-modal flex items-start">×</div>
+                    </div>
+                    <div class="flex justify-between">
+                        <div class="text-2xl cursor-pointer">←</div>
+                        <div class="text-2xl cursor-pointer">→</div>
+                    </div>
+                    <div class="flex justify-center">
+                        <div class="text-2xl cursor-pointer">↓</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            $('.group').hover(
+                function() {
+                    $(this).find('.modal').fadeIn();
+                },
+                function() {
+                    $(this).find('.modal').fadeOut();
+                }
+            );
+
+            $('.close-modal').click(function() {
+                $(this).closest('.modal').fadeOut();
+            });
+        });
+    </script>
+</body>
+</html>
